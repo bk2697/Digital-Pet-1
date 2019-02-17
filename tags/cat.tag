@@ -13,23 +13,57 @@
 </div>
 
 <!-- interactive activity -->
-asdfa
-<food-water></food-water>
-<play></play>
-<hygine></hygine>
-<health></health>
+<food-water if = {time<10}></food-water>
+<play if= {time>10 && time<20 || time == 10}></play>
+<hygine if = {time>20 && time<30 || time == 20}></hygine>
+<health if = {time>30 && time<40 || time == 30}></health>
+<p>Seconds Elapsed: { time }</p>
 
-
-<button onclick = {happyScore + 10}>Feed</button>
-<button onclick = {happyScore + 5}>Play</button>
-<button onclick = {happyScore + 5}>Clean Up Litter Box</button>
-<button onclick = {happyScore + 5}>Take a shower</button>
-<button onclick = {happyScore + 2}>Go to hospital</button>
+<button onclick = { feed }>Feed</button>
+<button onclick = { play }>Play</button>
+<button onclick = { cleanUp }>Clean Up Litter Box</button>
+<button onclick = { shower }>Take a shower</button>
+<button onclick = { hospital }>Go to hospital</button>
 
   <script>
 
+// Button adding score
+  this.happyScore = 60;
 
-  this.happyScore = 0;
+  this.feed = function(){
+    this.happyScore+=10;
+  }
+
+  this.play = function(){
+    this.happyScore+=5;
+  }
+
+  this.cleanUp = function(){
+    this.happyScore+=5;
+  }
+
+  this.shower = function(){
+    this.happyScore+=5;
+  }
+
+  this.hospital = function(){
+    this.happyScore+=3;
+  }
+
+
+// Timer
+
+  this.time = opts.start || 0
+
+  tick() {
+    this.update({ time: ++this.time })
+  }
+
+  var timer = setInterval(this.tick, 1000)
+
+  this.on('unmount', function() {
+    clearInterval(timer)
+  })
 
   console.log(this.happyScore);
     var tag = this;
