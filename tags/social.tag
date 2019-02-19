@@ -1,5 +1,6 @@
-<hygine>
-<h1 class="text-info">I have high standard on my hygine. Please clean up my mess!!!</h1>
+<social>
+  <h1 class="text-danger">Give me some attention! Show you care, OKAY???</h1>
+
   <script>
     var tag = this;
     console.log('tagName.tag');
@@ -10,4 +11,4 @@
       display: block;
     }
   </style>
-</hygine>
+</social>

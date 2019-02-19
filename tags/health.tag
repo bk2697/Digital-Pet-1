@@ -1,5 +1,5 @@
 <health>
-  <p>Vaccination time</p>
+  <h1 class="text-warning">Vaccination time</h1>
 
   <script>
     var tag = this;
